@@ -1,8 +1,10 @@
+// const { getEvents } = require('./apis');
 
 let events;
 let activities;
 let result = [];
 
+// getEvents();
 fetch("http://recruitment.golem.network:16655/events", {
   method: "GET"
 })
@@ -35,7 +37,7 @@ fetch("http://recruitment.golem.network:16655/events", {
           let start = new Date(item.start).getTime();
           let end = new Date(item.end).getTime();
 
-          events.forEach(e => {
+          events.forEach((e, index) => {
             let date = new Date(e.date).getTime();
 
             if (date >= start && date <= end) {
